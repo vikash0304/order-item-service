@@ -43,15 +43,23 @@ public class OrderItemController {
 			Response<?> response = orderItemService.addOrderItem(orderItemDto);
 			return new ResponseEntity<>(response.getResult(), response.getStatus());
 		} else {
-			log.error(Constants.INVALID_INPUT.getCode());
-			return new ResponseEntity<>(new Result(INVALID_INPUT.getCode()), HttpStatus.BAD_REQUEST);
+			log.error(Constants.INVALID_INPUT);
+			return new ResponseEntity<>(new Result(INVALID_INPUT), HttpStatus.BAD_REQUEST);
 		}
 	}
 
 	@ApiOperation(value = "API to fetch Order item based on Id")
-	@GetMapping(value = "/{itemId}", produces = {"application/json"} )
-	public  OrderItemDto getDpModelInfo(			
-			@PathVariable(value = "itemId",required = true) @ApiParam(value = "itemId", required = true) int itemId) {
-		return orderItemService.getOrderItem(itemId);	
+	@GetMapping(value = "/{itemId}", produces = { "application/json" })
+	public ResponseEntity<OrderItemDto> getDpModelInfo(
+			@PathVariable(value = "itemId", required = true) @ApiParam(value = "itemId", required = true) int itemId) {
+		OrderItemDto orderItemDto = null;
+		try {
+			orderItemDto = orderItemService.getOrderItem(itemId);
+			return new ResponseEntity<>(orderItemDto,HttpStatus.OK);
+		} catch(Exception e) {
+			log.error(Constants.INVALID_INPUT+e.getMessage());
+			return new ResponseEntity<>(orderItemDto,HttpStatus.BAD_REQUEST);
+		}
+		
 	}
 }

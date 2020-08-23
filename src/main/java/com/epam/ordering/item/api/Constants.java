@@ -1,18 +1,9 @@
 package com.epam.ordering.item.api;
 
-public enum Constants {
+public interface Constants {
 
-	INVALID_INPUT("Invalid Input"),
-	INVALID_QUANTITY("Invalid quantity");
-	
-	private String code;
-
-	private Constants(String code) {
-		this.code = code;
-	}
-
-	public String getCode() {
-		return code;
-	}
-	
+	String INVALID_INPUT = "Invalid Input, Please provide correct Input.";
+	String INVALID_QUANTITY = "Invalid quantity, Quantity should be positive integer.";
+	String Success = "Order saved Successfully.";
+	String NOT_FOUND = "Order Item not available for itemId:";
 }

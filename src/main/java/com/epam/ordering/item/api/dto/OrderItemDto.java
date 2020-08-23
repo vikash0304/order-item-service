@@ -5,9 +5,18 @@ public class OrderItemDto {
 	private String productCode;
 	private String productName;
 	private Integer Quantity;
+	private double price;
 
 	public String getProductCode() {
 		return productCode;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public void setProductCode(String productCode) {

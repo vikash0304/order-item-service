@@ -16,15 +16,17 @@ public class OrderItem {
 	private String productCode;
 	private String productName;
 	private int quantity;
+	private double price;
 
 	public OrderItem() {
 		super();
 	}
 
-	public OrderItem(String productCode, String productName, int quantity) {
+	public OrderItem(String productCode, String productName, int quantity, double price) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.quantity = quantity;
+		this.price = price;
 	}
 
 	public int getId() {
@@ -57,6 +59,14 @@ public class OrderItem {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }
