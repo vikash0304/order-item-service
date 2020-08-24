@@ -50,7 +50,7 @@ public class OrderItemController {
 
 	@ApiOperation(value = "API to fetch Order item based on Id")
 	@GetMapping(value = "/{itemId}", produces = { "application/json" })
-	public ResponseEntity<OrderItemDto> getDpModelInfo(
+	public ResponseEntity<OrderItemDto> getOrderItem(
 			@PathVariable(value = "itemId", required = true) @ApiParam(value = "itemId", required = true) int itemId) {
 		OrderItemDto orderItemDto = null;
 		try {
